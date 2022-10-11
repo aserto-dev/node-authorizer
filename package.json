@@ -1,0 +1,23 @@
+{
+  "name": "@aserto/node-authorizer",
+  "version": "0.0.7",
+  "description": "Node gRPC bindings for the Aserto authorizer service",
+  "scripts": {
+    "gen": "buf generate --include-imports buf.build/aserto-dev/authorizer"
+  },
+  "keywords": [],
+  "author": "Aserto",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@grpc/grpc-js": "^1.6.11",
+    "@types/google-protobuf": "^3.15.6",
+    "google-protobuf": "^3.21.0",
+    "grpc-tools": "^1.11.2"
+  },
+  "devDependencies": {
+    "@types/node": "^18.7.13",
+    "ts-node": "^10.9.1",
+    "ts-protoc-gen": "^0.15.0",
+    "typescript": "^4.8.2"
+  }
+}
