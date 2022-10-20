@@ -10,6 +10,7 @@ var google_protobuf_field_mask_pb = require('google-protobuf/google/protobuf/fie
 var aserto_authorizer_v2_api_identity_context_pb = require('../../../aserto/authorizer/v2/api/identity_context_pb.js');
 var aserto_authorizer_v2_api_policy_context_pb = require('../../../aserto/authorizer/v2/api/policy_context_pb.js');
 var aserto_authorizer_v2_api_module_pb = require('../../../aserto/authorizer/v2/api/module_pb.js');
+var aserto_authorizer_v2_api_policy_instance_pb = require('../../../aserto/authorizer/v2/api/policy_instance_pb.js');
 
 function serialize_aserto_authorizer_v2_CompileRequest(arg) {
   if (!(arg instanceof aserto_authorizer_v2_authorizer_pb.CompileRequest)) {
@@ -75,6 +76,28 @@ function serialize_aserto_authorizer_v2_GetPolicyResponse(arg) {
 
 function deserialize_aserto_authorizer_v2_GetPolicyResponse(buffer_arg) {
   return aserto_authorizer_v2_authorizer_pb.GetPolicyResponse.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_aserto_authorizer_v2_InfoRequest(arg) {
+  if (!(arg instanceof aserto_authorizer_v2_authorizer_pb.InfoRequest)) {
+    throw new Error('Expected argument of type aserto.authorizer.v2.InfoRequest');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_aserto_authorizer_v2_InfoRequest(buffer_arg) {
+  return aserto_authorizer_v2_authorizer_pb.InfoRequest.deserializeBinary(new Uint8Array(buffer_arg));
+}
+
+function serialize_aserto_authorizer_v2_InfoResponse(arg) {
+  if (!(arg instanceof aserto_authorizer_v2_authorizer_pb.InfoResponse)) {
+    throw new Error('Expected argument of type aserto.authorizer.v2.InfoResponse');
+  }
+  return Buffer.from(arg.serializeBinary());
+}
+
+function deserialize_aserto_authorizer_v2_InfoResponse(buffer_arg) {
+  return aserto_authorizer_v2_authorizer_pb.InfoResponse.deserializeBinary(new Uint8Array(buffer_arg));
 }
 
 function serialize_aserto_authorizer_v2_IsRequest(arg) {
@@ -210,6 +233,17 @@ var AuthorizerService = exports.AuthorizerService = {
     requestDeserialize: deserialize_aserto_authorizer_v2_GetPolicyRequest,
     responseSerialize: serialize_aserto_authorizer_v2_GetPolicyResponse,
     responseDeserialize: deserialize_aserto_authorizer_v2_GetPolicyResponse,
+  },
+  info: {
+    path: '/aserto.authorizer.v2.Authorizer/Info',
+    requestStream: false,
+    responseStream: false,
+    requestType: aserto_authorizer_v2_authorizer_pb.InfoRequest,
+    responseType: aserto_authorizer_v2_authorizer_pb.InfoResponse,
+    requestSerialize: serialize_aserto_authorizer_v2_InfoRequest,
+    requestDeserialize: deserialize_aserto_authorizer_v2_InfoRequest,
+    responseSerialize: serialize_aserto_authorizer_v2_InfoResponse,
+    responseDeserialize: deserialize_aserto_authorizer_v2_InfoResponse,
   },
 };
 

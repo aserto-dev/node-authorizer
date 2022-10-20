@@ -9,6 +9,59 @@ import * as google_protobuf_field_mask_pb from "google-protobuf/google/protobuf/
 import * as aserto_authorizer_v2_api_identity_context_pb from "../../../aserto/authorizer/v2/api/identity_context_pb";
 import * as aserto_authorizer_v2_api_policy_context_pb from "../../../aserto/authorizer/v2/api/policy_context_pb";
 import * as aserto_authorizer_v2_api_module_pb from "../../../aserto/authorizer/v2/api/module_pb";
+import * as aserto_authorizer_v2_api_policy_instance_pb from "../../../aserto/authorizer/v2/api/policy_instance_pb";
+
+export class InfoRequest extends jspb.Message {
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): InfoRequest.AsObject;
+  static toObject(includeInstance: boolean, msg: InfoRequest): InfoRequest.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: InfoRequest, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): InfoRequest;
+  static deserializeBinaryFromReader(message: InfoRequest, reader: jspb.BinaryReader): InfoRequest;
+}
+
+export namespace InfoRequest {
+  export type AsObject = {
+  }
+}
+
+export class InfoResponse extends jspb.Message {
+  getVersion(): string;
+  setVersion(value: string): void;
+
+  getCommit(): string;
+  setCommit(value: string): void;
+
+  getDate(): string;
+  setDate(value: string): void;
+
+  getOs(): string;
+  setOs(value: string): void;
+
+  getArch(): string;
+  setArch(value: string): void;
+
+  serializeBinary(): Uint8Array;
+  toObject(includeInstance?: boolean): InfoResponse.AsObject;
+  static toObject(includeInstance: boolean, msg: InfoResponse): InfoResponse.AsObject;
+  static extensions: {[key: number]: jspb.ExtensionFieldInfo<jspb.Message>};
+  static extensionsBinary: {[key: number]: jspb.ExtensionFieldBinaryInfo<jspb.Message>};
+  static serializeBinaryToWriter(message: InfoResponse, writer: jspb.BinaryWriter): void;
+  static deserializeBinary(bytes: Uint8Array): InfoResponse;
+  static deserializeBinaryFromReader(message: InfoResponse, reader: jspb.BinaryReader): InfoResponse;
+}
+
+export namespace InfoResponse {
+  export type AsObject = {
+    version: string,
+    commit: string,
+    date: string,
+    os: string,
+    arch: string,
+  }
+}
 
 export class GetPolicyRequest extends jspb.Message {
   getId(): string;
@@ -18,6 +71,11 @@ export class GetPolicyRequest extends jspb.Message {
   clearFieldMask(): void;
   getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
   setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): void;
+
+  hasPolicyInstance(): boolean;
+  clearPolicyInstance(): void;
+  getPolicyInstance(): aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance | undefined;
+  setPolicyInstance(value?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance): void;
 
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): GetPolicyRequest.AsObject;
@@ -33,6 +91,7 @@ export namespace GetPolicyRequest {
   export type AsObject = {
     id: string,
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+    policyInstance?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance.AsObject,
   }
 }
 
@@ -64,6 +123,11 @@ export class ListPoliciesRequest extends jspb.Message {
   getFieldMask(): google_protobuf_field_mask_pb.FieldMask | undefined;
   setFieldMask(value?: google_protobuf_field_mask_pb.FieldMask): void;
 
+  hasPolicyInstance(): boolean;
+  clearPolicyInstance(): void;
+  getPolicyInstance(): aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance | undefined;
+  setPolicyInstance(value?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): ListPoliciesRequest.AsObject;
   static toObject(includeInstance: boolean, msg: ListPoliciesRequest): ListPoliciesRequest.AsObject;
@@ -77,6 +141,7 @@ export class ListPoliciesRequest extends jspb.Message {
 export namespace ListPoliciesRequest {
   export type AsObject = {
     fieldMask?: google_protobuf_field_mask_pb.FieldMask.AsObject,
+    policyInstance?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance.AsObject,
   }
 }
 
@@ -123,6 +188,11 @@ export class DecisionTreeRequest extends jspb.Message {
   getResourceContext(): google_protobuf_struct_pb.Struct | undefined;
   setResourceContext(value?: google_protobuf_struct_pb.Struct): void;
 
+  hasPolicyInstance(): boolean;
+  clearPolicyInstance(): void;
+  getPolicyInstance(): aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance | undefined;
+  setPolicyInstance(value?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): DecisionTreeRequest.AsObject;
   static toObject(includeInstance: boolean, msg: DecisionTreeRequest): DecisionTreeRequest.AsObject;
@@ -139,6 +209,7 @@ export namespace DecisionTreeRequest {
     identityContext?: aserto_authorizer_v2_api_identity_context_pb.IdentityContext.AsObject,
     options?: DecisionTreeOptions.AsObject,
     resourceContext?: google_protobuf_struct_pb.Struct.AsObject,
+    policyInstance?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance.AsObject,
   }
 }
 
@@ -204,6 +275,11 @@ export class IsRequest extends jspb.Message {
   getResourceContext(): google_protobuf_struct_pb.Struct | undefined;
   setResourceContext(value?: google_protobuf_struct_pb.Struct): void;
 
+  hasPolicyInstance(): boolean;
+  clearPolicyInstance(): void;
+  getPolicyInstance(): aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance | undefined;
+  setPolicyInstance(value?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): IsRequest.AsObject;
   static toObject(includeInstance: boolean, msg: IsRequest): IsRequest.AsObject;
@@ -219,6 +295,7 @@ export namespace IsRequest {
     policyContext?: aserto_authorizer_v2_api_policy_context_pb.PolicyContext.AsObject,
     identityContext?: aserto_authorizer_v2_api_identity_context_pb.IdentityContext.AsObject,
     resourceContext?: google_protobuf_struct_pb.Struct.AsObject,
+    policyInstance?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance.AsObject,
   }
 }
 
@@ -327,6 +404,11 @@ export class QueryRequest extends jspb.Message {
   getResourceContext(): google_protobuf_struct_pb.Struct | undefined;
   setResourceContext(value?: google_protobuf_struct_pb.Struct): void;
 
+  hasPolicyInstance(): boolean;
+  clearPolicyInstance(): void;
+  getPolicyInstance(): aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance | undefined;
+  setPolicyInstance(value?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): QueryRequest.AsObject;
   static toObject(includeInstance: boolean, msg: QueryRequest): QueryRequest.AsObject;
@@ -345,6 +427,7 @@ export namespace QueryRequest {
     policyContext?: aserto_authorizer_v2_api_policy_context_pb.PolicyContext.AsObject,
     identityContext?: aserto_authorizer_v2_api_identity_context_pb.IdentityContext.AsObject,
     resourceContext?: google_protobuf_struct_pb.Struct.AsObject,
+    policyInstance?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance.AsObject,
   }
 }
 
@@ -385,6 +468,11 @@ export class CompileRequest extends jspb.Message {
   getResourceContext(): google_protobuf_struct_pb.Struct | undefined;
   setResourceContext(value?: google_protobuf_struct_pb.Struct): void;
 
+  hasPolicyInstance(): boolean;
+  clearPolicyInstance(): void;
+  getPolicyInstance(): aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance | undefined;
+  setPolicyInstance(value?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): CompileRequest.AsObject;
   static toObject(includeInstance: boolean, msg: CompileRequest): CompileRequest.AsObject;
@@ -405,6 +493,7 @@ export namespace CompileRequest {
     policyContext?: aserto_authorizer_v2_api_policy_context_pb.PolicyContext.AsObject,
     identityContext?: aserto_authorizer_v2_api_identity_context_pb.IdentityContext.AsObject,
     resourceContext?: google_protobuf_struct_pb.Struct.AsObject,
+    policyInstance?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance.AsObject,
   }
 }
 

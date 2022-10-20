@@ -25,6 +25,11 @@ export class Module extends jspb.Message {
   getAst(): google_protobuf_struct_pb.Value | undefined;
   setAst(value?: google_protobuf_struct_pb.Value): void;
 
+  hasPackageRoot(): boolean;
+  clearPackageRoot(): void;
+  getPackageRoot(): string;
+  setPackageRoot(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Module.AsObject;
   static toObject(includeInstance: boolean, msg: Module): Module.AsObject;
@@ -41,6 +46,7 @@ export namespace Module {
     raw: string,
     packagePath: string,
     ast?: google_protobuf_struct_pb.Value.AsObject,
+    packageRoot: string,
   }
 }
 

@@ -80,7 +80,8 @@ proto.aserto.authorizer.v2.api.Module.toObject = function(includeInstance, msg) 
     id: jspb.Message.getFieldWithDefault(msg, 1, ""),
     raw: jspb.Message.getFieldWithDefault(msg, 2, ""),
     packagePath: jspb.Message.getFieldWithDefault(msg, 3, ""),
-    ast: (f = msg.getAst()) && google_protobuf_struct_pb.Value.toObject(includeInstance, f)
+    ast: (f = msg.getAst()) && google_protobuf_struct_pb.Value.toObject(includeInstance, f),
+    packageRoot: jspb.Message.getFieldWithDefault(msg, 5, "")
   };
 
   if (includeInstance) {
@@ -133,6 +134,10 @@ proto.aserto.authorizer.v2.api.Module.deserializeBinaryFromReader = function(msg
       var value = new google_protobuf_struct_pb.Value;
       reader.readMessage(value,google_protobuf_struct_pb.Value.deserializeBinaryFromReader);
       msg.setAst(value);
+      break;
+    case 5:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setPackageRoot(value);
       break;
     default:
       reader.skipField();
@@ -190,6 +195,13 @@ proto.aserto.authorizer.v2.api.Module.serializeBinaryToWriter = function(message
       4,
       f,
       google_protobuf_struct_pb.Value.serializeBinaryToWriter
+    );
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 5));
+  if (f != null) {
+    writer.writeString(
+      5,
+      f
     );
   }
 };
@@ -337,6 +349,42 @@ proto.aserto.authorizer.v2.api.Module.prototype.clearAst = function() {
  */
 proto.aserto.authorizer.v2.api.Module.prototype.hasAst = function() {
   return jspb.Message.getField(this, 4) != null;
+};
+
+
+/**
+ * optional string package_root = 5;
+ * @return {string}
+ */
+proto.aserto.authorizer.v2.api.Module.prototype.getPackageRoot = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 5, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.aserto.authorizer.v2.api.Module} returns this
+ */
+proto.aserto.authorizer.v2.api.Module.prototype.setPackageRoot = function(value) {
+  return jspb.Message.setField(this, 5, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.aserto.authorizer.v2.api.Module} returns this
+ */
+proto.aserto.authorizer.v2.api.Module.prototype.clearPackageRoot = function() {
+  return jspb.Message.setField(this, 5, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.aserto.authorizer.v2.api.Module.prototype.hasPackageRoot = function() {
+  return jspb.Message.getField(this, 5) != null;
 };
 
 

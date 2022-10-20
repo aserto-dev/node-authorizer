@@ -4,12 +4,6 @@
 import * as jspb from "google-protobuf";
 
 export class PolicyContext extends jspb.Message {
-  getName(): string;
-  setName(value: string): void;
-
-  getInstanceLabel(): string;
-  setInstanceLabel(value: string): void;
-
   getPath(): string;
   setPath(value: string): void;
 
@@ -30,8 +24,6 @@ export class PolicyContext extends jspb.Message {
 
 export namespace PolicyContext {
   export type AsObject = {
-    name: string,
-    instanceLabel: string,
     path: string,
     decisionsList: Array<string>,
   }

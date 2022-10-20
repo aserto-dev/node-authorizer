@@ -13,6 +13,7 @@ interface IAuthorizerService extends grpc.ServiceDefinition<grpc.UntypedServiceI
   compile: grpc.MethodDefinition<aserto_authorizer_v2_authorizer_pb.CompileRequest, aserto_authorizer_v2_authorizer_pb.CompileResponse>;
   listPolicies: grpc.MethodDefinition<aserto_authorizer_v2_authorizer_pb.ListPoliciesRequest, aserto_authorizer_v2_authorizer_pb.ListPoliciesResponse>;
   getPolicy: grpc.MethodDefinition<aserto_authorizer_v2_authorizer_pb.GetPolicyRequest, aserto_authorizer_v2_authorizer_pb.GetPolicyResponse>;
+  info: grpc.MethodDefinition<aserto_authorizer_v2_authorizer_pb.InfoRequest, aserto_authorizer_v2_authorizer_pb.InfoResponse>;
 }
 
 export const AuthorizerService: IAuthorizerService;
@@ -24,6 +25,7 @@ export interface IAuthorizerServer extends grpc.UntypedServiceImplementation {
   compile: grpc.handleUnaryCall<aserto_authorizer_v2_authorizer_pb.CompileRequest, aserto_authorizer_v2_authorizer_pb.CompileResponse>;
   listPolicies: grpc.handleUnaryCall<aserto_authorizer_v2_authorizer_pb.ListPoliciesRequest, aserto_authorizer_v2_authorizer_pb.ListPoliciesResponse>;
   getPolicy: grpc.handleUnaryCall<aserto_authorizer_v2_authorizer_pb.GetPolicyRequest, aserto_authorizer_v2_authorizer_pb.GetPolicyResponse>;
+  info: grpc.handleUnaryCall<aserto_authorizer_v2_authorizer_pb.InfoRequest, aserto_authorizer_v2_authorizer_pb.InfoResponse>;
 }
 
 export class AuthorizerClient extends grpc.Client {
@@ -46,4 +48,7 @@ export class AuthorizerClient extends grpc.Client {
   getPolicy(argument: aserto_authorizer_v2_authorizer_pb.GetPolicyRequest, callback: grpc.requestCallback<aserto_authorizer_v2_authorizer_pb.GetPolicyResponse>): grpc.ClientUnaryCall;
   getPolicy(argument: aserto_authorizer_v2_authorizer_pb.GetPolicyRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<aserto_authorizer_v2_authorizer_pb.GetPolicyResponse>): grpc.ClientUnaryCall;
   getPolicy(argument: aserto_authorizer_v2_authorizer_pb.GetPolicyRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<aserto_authorizer_v2_authorizer_pb.GetPolicyResponse>): grpc.ClientUnaryCall;
+  info(argument: aserto_authorizer_v2_authorizer_pb.InfoRequest, callback: grpc.requestCallback<aserto_authorizer_v2_authorizer_pb.InfoResponse>): grpc.ClientUnaryCall;
+  info(argument: aserto_authorizer_v2_authorizer_pb.InfoRequest, metadataOrOptions: grpc.Metadata | grpc.CallOptions | null, callback: grpc.requestCallback<aserto_authorizer_v2_authorizer_pb.InfoResponse>): grpc.ClientUnaryCall;
+  info(argument: aserto_authorizer_v2_authorizer_pb.InfoRequest, metadata: grpc.Metadata | null, options: grpc.CallOptions | null, callback: grpc.requestCallback<aserto_authorizer_v2_authorizer_pb.InfoResponse>): grpc.ClientUnaryCall;
 }

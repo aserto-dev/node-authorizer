@@ -408,7 +408,7 @@ if (goog.DEBUG && !COMPILED) {
  * @private {!Array<number>}
  * @const
  */
-proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger.repeatedFields_ = [5,6,7,12];
+proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger.repeatedFields_ = [5,6,7,12,13];
 
 
 
@@ -452,6 +452,8 @@ proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger.toObject = function(incl
     securityDefinitions: (f = msg.getSecurityDefinitions()) && proto.grpc.gateway.protoc_gen_openapiv2.options.SecurityDefinitions.toObject(includeInstance, f),
     securityList: jspb.Message.toObjectList(msg.getSecurityList(),
     proto.grpc.gateway.protoc_gen_openapiv2.options.SecurityRequirement.toObject, includeInstance),
+    tagsList: jspb.Message.toObjectList(msg.getTagsList(),
+    proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.toObject, includeInstance),
     externalDocs: (f = msg.getExternalDocs()) && proto.grpc.gateway.protoc_gen_openapiv2.options.ExternalDocumentation.toObject(includeInstance, f),
     extensionsMap: (f = msg.getExtensionsMap()) ? f.toObject(includeInstance, proto.google.protobuf.Value.toObject) : []
   };
@@ -536,6 +538,11 @@ proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger.deserializeBinaryFromRea
       var value = new proto.grpc.gateway.protoc_gen_openapiv2.options.SecurityRequirement;
       reader.readMessage(value,proto.grpc.gateway.protoc_gen_openapiv2.options.SecurityRequirement.deserializeBinaryFromReader);
       msg.addSecurity(value);
+      break;
+    case 13:
+      var value = new proto.grpc.gateway.protoc_gen_openapiv2.options.Tag;
+      reader.readMessage(value,proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.deserializeBinaryFromReader);
+      msg.addTags(value);
       break;
     case 14:
       var value = new proto.grpc.gateway.protoc_gen_openapiv2.options.ExternalDocumentation;
@@ -645,6 +652,14 @@ proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger.serializeBinaryToWriter 
       12,
       f,
       proto.grpc.gateway.protoc_gen_openapiv2.options.SecurityRequirement.serializeBinaryToWriter
+    );
+  }
+  f = message.getTagsList();
+  if (f.length > 0) {
+    writer.writeRepeatedMessage(
+      13,
+      f,
+      proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.serializeBinaryToWriter
     );
   }
   f = message.getExternalDocs();
@@ -958,6 +973,44 @@ proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger.prototype.addSecurity = 
  */
 proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger.prototype.clearSecurityList = function() {
   return this.setSecurityList([]);
+};
+
+
+/**
+ * repeated Tag tags = 13;
+ * @return {!Array<!proto.grpc.gateway.protoc_gen_openapiv2.options.Tag>}
+ */
+proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger.prototype.getTagsList = function() {
+  return /** @type{!Array<!proto.grpc.gateway.protoc_gen_openapiv2.options.Tag>} */ (
+    jspb.Message.getRepeatedWrapperField(this, proto.grpc.gateway.protoc_gen_openapiv2.options.Tag, 13));
+};
+
+
+/**
+ * @param {!Array<!proto.grpc.gateway.protoc_gen_openapiv2.options.Tag>} value
+ * @return {!proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger} returns this
+*/
+proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger.prototype.setTagsList = function(value) {
+  return jspb.Message.setRepeatedWrapperField(this, 13, value);
+};
+
+
+/**
+ * @param {!proto.grpc.gateway.protoc_gen_openapiv2.options.Tag=} opt_value
+ * @param {number=} opt_index
+ * @return {!proto.grpc.gateway.protoc_gen_openapiv2.options.Tag}
+ */
+proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger.prototype.addTags = function(opt_value, opt_index) {
+  return jspb.Message.addToRepeatedWrapperField(this, 13, opt_value, proto.grpc.gateway.protoc_gen_openapiv2.options.Tag, opt_index);
+};
+
+
+/**
+ * Clears the list making it empty but non-null.
+ * @return {!proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger} returns this
+ */
+proto.grpc.gateway.protoc_gen_openapiv2.options.Swagger.prototype.clearTagsList = function() {
+  return this.setTagsList([]);
 };
 
 
@@ -4467,8 +4520,10 @@ proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.prototype.toObject = functio
  */
 proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.toObject = function(includeInstance, msg) {
   var f, obj = {
+    name: jspb.Message.getFieldWithDefault(msg, 1, ""),
     description: jspb.Message.getFieldWithDefault(msg, 2, ""),
-    externalDocs: (f = msg.getExternalDocs()) && proto.grpc.gateway.protoc_gen_openapiv2.options.ExternalDocumentation.toObject(includeInstance, f)
+    externalDocs: (f = msg.getExternalDocs()) && proto.grpc.gateway.protoc_gen_openapiv2.options.ExternalDocumentation.toObject(includeInstance, f),
+    extensionsMap: (f = msg.getExtensionsMap()) ? f.toObject(includeInstance, proto.google.protobuf.Value.toObject) : []
   };
 
   if (includeInstance) {
@@ -4505,6 +4560,10 @@ proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.deserializeBinaryFromReader 
     }
     var field = reader.getFieldNumber();
     switch (field) {
+    case 1:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setName(value);
+      break;
     case 2:
       var value = /** @type {string} */ (reader.readString());
       msg.setDescription(value);
@@ -4513,6 +4572,12 @@ proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.deserializeBinaryFromReader 
       var value = new proto.grpc.gateway.protoc_gen_openapiv2.options.ExternalDocumentation;
       reader.readMessage(value,proto.grpc.gateway.protoc_gen_openapiv2.options.ExternalDocumentation.deserializeBinaryFromReader);
       msg.setExternalDocs(value);
+      break;
+    case 4:
+      var value = msg.getExtensionsMap();
+      reader.readMessage(value, function(message, reader) {
+        jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readMessage, proto.google.protobuf.Value.deserializeBinaryFromReader, "", new proto.google.protobuf.Value());
+         });
       break;
     default:
       reader.skipField();
@@ -4543,6 +4608,13 @@ proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.prototype.serializeBinary = 
  */
 proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.serializeBinaryToWriter = function(message, writer) {
   var f = undefined;
+  f = message.getName();
+  if (f.length > 0) {
+    writer.writeString(
+      1,
+      f
+    );
+  }
   f = message.getDescription();
   if (f.length > 0) {
     writer.writeString(
@@ -4558,6 +4630,28 @@ proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.serializeBinaryToWriter = fu
       proto.grpc.gateway.protoc_gen_openapiv2.options.ExternalDocumentation.serializeBinaryToWriter
     );
   }
+  f = message.getExtensionsMap(true);
+  if (f && f.getLength() > 0) {
+    f.serializeBinary(4, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeMessage, proto.google.protobuf.Value.serializeBinaryToWriter);
+  }
+};
+
+
+/**
+ * optional string name = 1;
+ * @return {string}
+ */
+proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.prototype.getName = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 1, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.grpc.gateway.protoc_gen_openapiv2.options.Tag} returns this
+ */
+proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.prototype.setName = function(value) {
+  return jspb.Message.setProto3StringField(this, 1, value);
 };
 
 
@@ -4614,6 +4708,28 @@ proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.prototype.clearExternalDocs 
 proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.prototype.hasExternalDocs = function() {
   return jspb.Message.getField(this, 3) != null;
 };
+
+
+/**
+ * map<string, google.protobuf.Value> extensions = 4;
+ * @param {boolean=} opt_noLazyCreate Do not create the map if
+ * empty, instead returning `undefined`
+ * @return {!jspb.Map<string,!proto.google.protobuf.Value>}
+ */
+proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.prototype.getExtensionsMap = function(opt_noLazyCreate) {
+  return /** @type {!jspb.Map<string,!proto.google.protobuf.Value>} */ (
+      jspb.Message.getMapField(this, 4, opt_noLazyCreate,
+      proto.google.protobuf.Value));
+};
+
+
+/**
+ * Clears values from the map. The map will be non-null.
+ * @return {!proto.grpc.gateway.protoc_gen_openapiv2.options.Tag} returns this
+ */
+proto.grpc.gateway.protoc_gen_openapiv2.options.Tag.prototype.clearExtensionsMap = function() {
+  this.getExtensionsMap().clear();
+  return this;};
 
 
 

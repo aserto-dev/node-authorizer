@@ -46,6 +46,11 @@ export class Swagger extends jspb.Message {
   setSecurityList(value: Array<SecurityRequirement>): void;
   addSecurity(value?: SecurityRequirement, index?: number): SecurityRequirement;
 
+  clearTagsList(): void;
+  getTagsList(): Array<Tag>;
+  setTagsList(value: Array<Tag>): void;
+  addTags(value?: Tag, index?: number): Tag;
+
   hasExternalDocs(): boolean;
   clearExternalDocs(): void;
   getExternalDocs(): ExternalDocumentation | undefined;
@@ -75,6 +80,7 @@ export namespace Swagger {
     responsesMap: Array<[string, Response.AsObject]>,
     securityDefinitions?: SecurityDefinitions.AsObject,
     securityList: Array<SecurityRequirement.AsObject>,
+    tagsList: Array<Tag.AsObject>,
     externalDocs?: ExternalDocumentation.AsObject,
     extensionsMap: Array<[string, google_protobuf_struct_pb.Value.AsObject]>,
   }
@@ -551,6 +557,9 @@ export namespace JSONSchema {
 }
 
 export class Tag extends jspb.Message {
+  getName(): string;
+  setName(value: string): void;
+
   getDescription(): string;
   setDescription(value: string): void;
 
@@ -559,6 +568,8 @@ export class Tag extends jspb.Message {
   getExternalDocs(): ExternalDocumentation | undefined;
   setExternalDocs(value?: ExternalDocumentation): void;
 
+  getExtensionsMap(): jspb.Map<string, google_protobuf_struct_pb.Value>;
+  clearExtensionsMap(): void;
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Tag.AsObject;
   static toObject(includeInstance: boolean, msg: Tag): Tag.AsObject;
@@ -571,8 +582,10 @@ export class Tag extends jspb.Message {
 
 export namespace Tag {
   export type AsObject = {
+    name: string,
     description: string,
     externalDocs?: ExternalDocumentation.AsObject,
+    extensionsMap: Array<[string, google_protobuf_struct_pb.Value.AsObject]>,
   }
 }
 
