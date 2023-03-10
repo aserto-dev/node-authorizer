@@ -6,6 +6,7 @@ import * as google_protobuf_struct_pb from "google-protobuf/google/protobuf/stru
 import * as google_protobuf_timestamp_pb from "google-protobuf/google/protobuf/timestamp_pb";
 import * as aserto_authorizer_v2_api_policy_context_pb from "../../../../aserto/authorizer/v2/api/policy_context_pb";
 import * as aserto_authorizer_v2_api_identity_context_pb from "../../../../aserto/authorizer/v2/api/identity_context_pb";
+import * as aserto_authorizer_v2_api_policy_instance_pb from "../../../../aserto/authorizer/v2/api/policy_instance_pb";
 
 export class Decision extends jspb.Message {
   getId(): string;
@@ -38,6 +39,11 @@ export class Decision extends jspb.Message {
 
   getAnnotationsMap(): jspb.Map<string, string>;
   clearAnnotationsMap(): void;
+  hasTenantId(): boolean;
+  clearTenantId(): void;
+  getTenantId(): string;
+  setTenantId(value: string): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): Decision.AsObject;
   static toObject(includeInstance: boolean, msg: Decision): Decision.AsObject;
@@ -58,6 +64,7 @@ export namespace Decision {
     outcomesMap: Array<[string, boolean]>,
     resource?: google_protobuf_struct_pb.Struct.AsObject,
     annotationsMap: Array<[string, string]>,
+    tenantId: string,
   }
 }
 
@@ -109,6 +116,11 @@ export class DecisionPolicy extends jspb.Message {
   getRegistryDigest(): string;
   setRegistryDigest(value: string): void;
 
+  hasPolicyInstance(): boolean;
+  clearPolicyInstance(): void;
+  getPolicyInstance(): aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance | undefined;
+  setPolicyInstance(value?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance): void;
+
   serializeBinary(): Uint8Array;
   toObject(includeInstance?: boolean): DecisionPolicy.AsObject;
   static toObject(includeInstance: boolean, msg: DecisionPolicy): DecisionPolicy.AsObject;
@@ -126,6 +138,7 @@ export namespace DecisionPolicy {
     registryImage: string,
     registryTag: string,
     registryDigest: string,
+    policyInstance?: aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance.AsObject,
   }
 }
 

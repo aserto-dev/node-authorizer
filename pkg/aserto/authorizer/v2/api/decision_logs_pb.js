@@ -29,6 +29,8 @@ var aserto_authorizer_v2_api_policy_context_pb = require('../../../../aserto/aut
 goog.object.extend(proto, aserto_authorizer_v2_api_policy_context_pb);
 var aserto_authorizer_v2_api_identity_context_pb = require('../../../../aserto/authorizer/v2/api/identity_context_pb.js');
 goog.object.extend(proto, aserto_authorizer_v2_api_identity_context_pb);
+var aserto_authorizer_v2_api_policy_instance_pb = require('../../../../aserto/authorizer/v2/api/policy_instance_pb.js');
+goog.object.extend(proto, aserto_authorizer_v2_api_policy_instance_pb);
 goog.exportSymbol('proto.aserto.authorizer.v2.api.Decision', null, global);
 goog.exportSymbol('proto.aserto.authorizer.v2.api.DecisionPolicy', null, global);
 goog.exportSymbol('proto.aserto.authorizer.v2.api.DecisionUser', null, global);
@@ -134,7 +136,8 @@ proto.aserto.authorizer.v2.api.Decision.toObject = function(includeInstance, msg
     policy: (f = msg.getPolicy()) && proto.aserto.authorizer.v2.api.DecisionPolicy.toObject(includeInstance, f),
     outcomesMap: (f = msg.getOutcomesMap()) ? f.toObject(includeInstance, undefined) : [],
     resource: (f = msg.getResource()) && google_protobuf_struct_pb.Struct.toObject(includeInstance, f),
-    annotationsMap: (f = msg.getAnnotationsMap()) ? f.toObject(includeInstance, undefined) : []
+    annotationsMap: (f = msg.getAnnotationsMap()) ? f.toObject(includeInstance, undefined) : [],
+    tenantId: jspb.Message.getFieldWithDefault(msg, 9, "")
   };
 
   if (includeInstance) {
@@ -210,6 +213,10 @@ proto.aserto.authorizer.v2.api.Decision.deserializeBinaryFromReader = function(m
       reader.readMessage(value, function(message, reader) {
         jspb.Map.deserializeBinary(message, reader, jspb.BinaryReader.prototype.readString, jspb.BinaryReader.prototype.readString, null, "", "");
          });
+      break;
+    case 9:
+      var value = /** @type {string} */ (reader.readString());
+      msg.setTenantId(value);
       break;
     default:
       reader.skipField();
@@ -293,6 +300,13 @@ proto.aserto.authorizer.v2.api.Decision.serializeBinaryToWriter = function(messa
   f = message.getAnnotationsMap(true);
   if (f && f.getLength() > 0) {
     f.serializeBinary(8, writer, jspb.BinaryWriter.prototype.writeString, jspb.BinaryWriter.prototype.writeString);
+  }
+  f = /** @type {string} */ (jspb.Message.getField(message, 9));
+  if (f != null) {
+    writer.writeString(
+      9,
+      f
+    );
   }
 };
 
@@ -523,6 +537,42 @@ proto.aserto.authorizer.v2.api.Decision.prototype.getAnnotationsMap = function(o
 proto.aserto.authorizer.v2.api.Decision.prototype.clearAnnotationsMap = function() {
   this.getAnnotationsMap().clear();
   return this;};
+
+
+/**
+ * optional string tenant_id = 9;
+ * @return {string}
+ */
+proto.aserto.authorizer.v2.api.Decision.prototype.getTenantId = function() {
+  return /** @type {string} */ (jspb.Message.getFieldWithDefault(this, 9, ""));
+};
+
+
+/**
+ * @param {string} value
+ * @return {!proto.aserto.authorizer.v2.api.Decision} returns this
+ */
+proto.aserto.authorizer.v2.api.Decision.prototype.setTenantId = function(value) {
+  return jspb.Message.setField(this, 9, value);
+};
+
+
+/**
+ * Clears the field making it undefined.
+ * @return {!proto.aserto.authorizer.v2.api.Decision} returns this
+ */
+proto.aserto.authorizer.v2.api.Decision.prototype.clearTenantId = function() {
+  return jspb.Message.setField(this, 9, undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.aserto.authorizer.v2.api.Decision.prototype.hasTenantId = function() {
+  return jspb.Message.getField(this, 9) != null;
+};
 
 
 
@@ -772,7 +822,8 @@ proto.aserto.authorizer.v2.api.DecisionPolicy.toObject = function(includeInstanc
     registryService: jspb.Message.getFieldWithDefault(msg, 2, ""),
     registryImage: jspb.Message.getFieldWithDefault(msg, 3, ""),
     registryTag: jspb.Message.getFieldWithDefault(msg, 4, ""),
-    registryDigest: jspb.Message.getFieldWithDefault(msg, 5, "")
+    registryDigest: jspb.Message.getFieldWithDefault(msg, 5, ""),
+    policyInstance: (f = msg.getPolicyInstance()) && aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance.toObject(includeInstance, f)
   };
 
   if (includeInstance) {
@@ -829,6 +880,11 @@ proto.aserto.authorizer.v2.api.DecisionPolicy.deserializeBinaryFromReader = func
     case 5:
       var value = /** @type {string} */ (reader.readString());
       msg.setRegistryDigest(value);
+      break;
+    case 6:
+      var value = new aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance;
+      reader.readMessage(value,aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance.deserializeBinaryFromReader);
+      msg.setPolicyInstance(value);
       break;
     default:
       reader.skipField();
@@ -893,6 +949,14 @@ proto.aserto.authorizer.v2.api.DecisionPolicy.serializeBinaryToWriter = function
     writer.writeString(
       5,
       f
+    );
+  }
+  f = message.getPolicyInstance();
+  if (f != null) {
+    writer.writeMessage(
+      6,
+      f,
+      aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance.serializeBinaryToWriter
     );
   }
 };
@@ -1004,6 +1068,43 @@ proto.aserto.authorizer.v2.api.DecisionPolicy.prototype.getRegistryDigest = func
  */
 proto.aserto.authorizer.v2.api.DecisionPolicy.prototype.setRegistryDigest = function(value) {
   return jspb.Message.setProto3StringField(this, 5, value);
+};
+
+
+/**
+ * optional PolicyInstance policy_instance = 6;
+ * @return {?proto.aserto.authorizer.v2.api.PolicyInstance}
+ */
+proto.aserto.authorizer.v2.api.DecisionPolicy.prototype.getPolicyInstance = function() {
+  return /** @type{?proto.aserto.authorizer.v2.api.PolicyInstance} */ (
+    jspb.Message.getWrapperField(this, aserto_authorizer_v2_api_policy_instance_pb.PolicyInstance, 6));
+};
+
+
+/**
+ * @param {?proto.aserto.authorizer.v2.api.PolicyInstance|undefined} value
+ * @return {!proto.aserto.authorizer.v2.api.DecisionPolicy} returns this
+*/
+proto.aserto.authorizer.v2.api.DecisionPolicy.prototype.setPolicyInstance = function(value) {
+  return jspb.Message.setWrapperField(this, 6, value);
+};
+
+
+/**
+ * Clears the message field making it undefined.
+ * @return {!proto.aserto.authorizer.v2.api.DecisionPolicy} returns this
+ */
+proto.aserto.authorizer.v2.api.DecisionPolicy.prototype.clearPolicyInstance = function() {
+  return this.setPolicyInstance(undefined);
+};
+
+
+/**
+ * Returns whether this field is set.
+ * @return {boolean}
+ */
+proto.aserto.authorizer.v2.api.DecisionPolicy.prototype.hasPolicyInstance = function() {
+  return jspb.Message.getField(this, 6) != null;
 };
 
 
