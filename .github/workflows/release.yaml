@@ -9,6 +9,11 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
+      - name: Get release
+        id: get_release
+        uses: bruceadams/get-release@v1.3.2
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
       - name: Read Configuration
         uses: hashicorp/vault-action@v2.5.0
         id: vault
@@ -22,5 +27,13 @@ jobs:
         with:
           node-version: '16.x'
           registry-url: 'https://registry.npmjs.org'
-      - run: npm ci
-      - run: npm publish --access public
+      - name: run yarn
+        run: |
+          yarn
+      - name: update package.json version
+        run: |
+          NEW_VERSION=$(echo "${{ steps.get_release.outputs.tag_name }}" | sed 's/v//')
+          yarn version --new-version $NEW_VERSION
+      - name: publish to npm
+        run: |
+          yarn publish --access public
