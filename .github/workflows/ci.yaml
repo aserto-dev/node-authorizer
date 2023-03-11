@@ -30,7 +30,7 @@ jobs:
         token: ${{ secrets.VAULT_TOKEN }}
         secrets: |
           kv/data/github  "SSH_PRIVATE_KEY"     | SSH_PRIVATE_KEY;
-
+          kv/data/github  "ROOT_TOKEN"          | GITHUB_TOKEN;
     - name: Checkout
       uses: actions/checkout@v3
       with:
@@ -81,7 +81,7 @@ jobs:
         id: create_release
         uses: beyond5959/create-release-github@v1
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_TOKEN: ${{ env.GITHUB_TOKEN }}
         with:
           tag_name: ${{ github.ref_name }}
           release_name: Release ${{ github.ref_name }}
