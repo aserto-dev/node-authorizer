@@ -33,6 +33,11 @@ jobs:
       - name: update package.json version
         run: |
           NEW_VERSION=$(echo "${{ steps.get_release.outputs.tag_name }}" | sed 's/v//')
+          
+          git config --global url."git@github.com:".insteadOf https://github.com/
+          git config --global user.email "github-bot@aserto.com"
+          git config --global user.name "Aserto Bot"
+
           yarn version --new-version $NEW_VERSION
       - name: publish to npm
         run: |
