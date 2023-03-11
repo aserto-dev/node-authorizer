@@ -1,12 +1,12 @@
 name: Publish Package to npmjs
 on:
   release:
-    types: [created]
+    types: [published]
 env:
   VAULT_ADDR: https://vault.eng.aserto.com/
 
 jobs:
-  build:
+  publish:
     runs-on: ubuntu-latest
     steps:
       - name: Get release
