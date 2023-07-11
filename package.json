@@ -9,13 +9,13 @@
   "author": "Aserto",
   "license": "Apache-2.0",
   "dependencies": {
-    "@grpc/grpc-js": "^1.8.12",
-    "@types/google-protobuf": "^3.15.6",
+    "@grpc/grpc-js": "^1.8.17",
     "google-protobuf": "^3.21.2",
     "grpc-tools": "^1.12.4",
     "ts-node-dev": "^2.0.0"
   },
   "devDependencies": {
+    "@types/google-protobuf": "^3.15.6",
     "@types/node": "^18.7.13",
     "ts-node": "^10.9.1",
     "ts-protoc-gen": "^0.15.0",
