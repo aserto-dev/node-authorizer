@@ -32,6 +32,7 @@ export interface IdentityTypeMap {
   IDENTITY_TYPE_NONE: 1;
   IDENTITY_TYPE_SUB: 2;
   IDENTITY_TYPE_JWT: 3;
+  IDENTITY_TYPE_MANUAL: 4;
 }
 
 export const IdentityType: IdentityTypeMap;

@@ -205,7 +205,8 @@ proto.aserto.authorizer.v2.api.IdentityType = {
   IDENTITY_TYPE_UNKNOWN: 0,
   IDENTITY_TYPE_NONE: 1,
   IDENTITY_TYPE_SUB: 2,
-  IDENTITY_TYPE_JWT: 3
+  IDENTITY_TYPE_JWT: 3,
+  IDENTITY_TYPE_MANUAL: 4
 };
 
 goog.object.extend(exports, proto.aserto.authorizer.v2.api);
