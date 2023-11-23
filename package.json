@@ -9,10 +9,10 @@
   "author": "Aserto",
   "license": "Apache-2.0",
   "peerDependencies": {
-    "@grpc/grpc-js": "1.8.21"
+    "@grpc/grpc-js": ">=1.8.21 <1.9"
   },
   "devDependencies": {
-    "@grpc/grpc-js": "1.8.21",
+    "@grpc/grpc-js": ">=1.8.21 <1.9",
     "@types/google-protobuf": "^3.15.6",
     "@types/node": "^18.7.13",
     "google-protobuf": "^3.21.2",
