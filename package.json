@@ -3,8 +3,12 @@
   "version": "0.20.8",
   "description": "Node gRPC bindings for the Aserto authorizer service",
   "scripts": {
-    "gen": "rm -rf src && buf generate --include-imports ${BUF_PATH:-buf.build/aserto-dev/authorizer} && rm -rf src/gen/cjs && tsc"
+    "gen": "rm -rf src && buf generate --include-imports ${BUF_PATH:-buf.build/aserto-dev/authorizer} && rm -rf src/gen/cjs && tsc",
+    "release": "scripts/release.sh"
   },
+  "files": [
+    "src/"
+  ],
   "keywords": [],
   "author": "Aserto",
   "license": "Apache-2.0",
