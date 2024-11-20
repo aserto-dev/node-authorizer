@@ -1,9 +1,13 @@
-import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3 } from "@bufbuild/protobuf";
+import type { GenFile, GenMessage } from "@bufbuild/protobuf/codegenv1";
+import type { Message } from "@bufbuild/protobuf";
+/**
+ * Describes the file aserto/authorizer/v2/api/policy_instance.proto.
+ */
+export declare const file_aserto_authorizer_v2_api_policy_instance: GenFile;
 /**
  * @generated from message aserto.authorizer.v2.api.PolicyInstance
  */
-export declare class PolicyInstance extends Message<PolicyInstance> {
+export type PolicyInstance = Message<"aserto.authorizer.v2.api.PolicyInstance"> & {
     /**
      * policy name
      *
@@ -16,12 +20,9 @@ export declare class PolicyInstance extends Message<PolicyInstance> {
      * @generated from field: string instance_label = 2;
      */
     instanceLabel: string;
-    constructor(data?: PartialMessage<PolicyInstance>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.api.PolicyInstance";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): PolicyInstance;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): PolicyInstance;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): PolicyInstance;
-    static equals(a: PolicyInstance | PlainMessage<PolicyInstance> | undefined, b: PolicyInstance | PlainMessage<PolicyInstance> | undefined): boolean;
-}
+};
+/**
+ * Describes the message aserto.authorizer.v2.api.PolicyInstance.
+ * Use `create(PolicyInstanceSchema)` to create a new message.
+ */
+export declare const PolicyInstanceSchema: GenMessage<PolicyInstance>;

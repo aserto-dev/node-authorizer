@@ -1,5 +1,27 @@
-import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3 } from "@bufbuild/protobuf";
+import type { GenEnum, GenFile, GenMessage } from "@bufbuild/protobuf/codegenv1";
+import type { Message } from "@bufbuild/protobuf";
+/**
+ * Describes the file aserto/authorizer/v2/api/identity_context.proto.
+ */
+export declare const file_aserto_authorizer_v2_api_identity_context: GenFile;
+/**
+ * @generated from message aserto.authorizer.v2.api.IdentityContext
+ */
+export type IdentityContext = Message<"aserto.authorizer.v2.api.IdentityContext"> & {
+    /**
+     * @generated from field: string identity = 1;
+     */
+    identity: string;
+    /**
+     * @generated from field: aserto.authorizer.v2.api.IdentityType type = 2;
+     */
+    type: IdentityType;
+};
+/**
+ * Describes the message aserto.authorizer.v2.api.IdentityContext.
+ * Use `create(IdentityContextSchema)` to create a new message.
+ */
+export declare const IdentityContextSchema: GenMessage<IdentityContext>;
 /**
  * Identity types, describes the payload type of the identity field inside the IdentityContext message.
  *
@@ -38,23 +60,6 @@ export declare enum IdentityType {
     MANUAL = 4
 }
 /**
- * @generated from message aserto.authorizer.v2.api.IdentityContext
+ * Describes the enum aserto.authorizer.v2.api.IdentityType.
  */
-export declare class IdentityContext extends Message<IdentityContext> {
-    /**
-     * @generated from field: string identity = 1;
-     */
-    identity: string;
-    /**
-     * @generated from field: aserto.authorizer.v2.api.IdentityType type = 2;
-     */
-    type: IdentityType;
-    constructor(data?: PartialMessage<IdentityContext>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.api.IdentityContext";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): IdentityContext;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): IdentityContext;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): IdentityContext;
-    static equals(a: IdentityContext | PlainMessage<IdentityContext> | undefined, b: IdentityContext | PlainMessage<IdentityContext> | undefined): boolean;
-}
+export declare const IdentityTypeSchema: GenEnum<IdentityType>;

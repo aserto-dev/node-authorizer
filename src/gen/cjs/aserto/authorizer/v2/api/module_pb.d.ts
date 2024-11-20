@@ -1,9 +1,14 @@
-import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3, Value } from "@bufbuild/protobuf";
+import type { GenFile, GenMessage } from "@bufbuild/protobuf/codegenv1";
+import type { Value } from "@bufbuild/protobuf/wkt";
+import type { Message } from "@bufbuild/protobuf";
+/**
+ * Describes the file aserto/authorizer/v2/api/module.proto.
+ */
+export declare const file_aserto_authorizer_v2_api_module: GenFile;
 /**
  * @generated from message aserto.authorizer.v2.api.Module
  */
-export declare class Module extends Message<Module> {
+export type Module = Message<"aserto.authorizer.v2.api.Module"> & {
     /**
      * @generated from field: optional string id = 1;
      */
@@ -24,12 +29,9 @@ export declare class Module extends Message<Module> {
      * @generated from field: optional string package_root = 5;
      */
     packageRoot?: string;
-    constructor(data?: PartialMessage<Module>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.api.Module";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Module;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Module;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Module;
-    static equals(a: Module | PlainMessage<Module> | undefined, b: Module | PlainMessage<Module> | undefined): boolean;
-}
+};
+/**
+ * Describes the message aserto.authorizer.v2.api.Module.
+ * Use `create(ModuleSchema)` to create a new message.
+ */
+export declare const ModuleSchema: GenMessage<Module>;

@@ -1,9 +1,411 @@
-import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { FieldMask, Message, proto3, Struct } from "@bufbuild/protobuf";
-import { PolicyInstance } from "./api/policy_instance_pb.js";
-import { Module } from "./api/module_pb.js";
-import { PolicyContext } from "./api/policy_context_pb.js";
-import { IdentityContext } from "./api/identity_context_pb.js";
+import type { GenEnum, GenFile, GenMessage, GenService } from "@bufbuild/protobuf/codegenv1";
+import type { FieldMask } from "@bufbuild/protobuf/wkt";
+import type { IdentityContext } from "./api/identity_context_pb";
+import type { PolicyContext } from "./api/policy_context_pb";
+import type { Module } from "./api/module_pb";
+import type { PolicyInstance } from "./api/policy_instance_pb";
+import type { JsonObject, Message } from "@bufbuild/protobuf";
+/**
+ * Describes the file aserto/authorizer/v2/authorizer.proto.
+ */
+export declare const file_aserto_authorizer_v2_authorizer: GenFile;
+/**
+ * @generated from message aserto.authorizer.v2.InfoRequest
+ */
+export type InfoRequest = Message<"aserto.authorizer.v2.InfoRequest"> & {};
+/**
+ * Describes the message aserto.authorizer.v2.InfoRequest.
+ * Use `create(InfoRequestSchema)` to create a new message.
+ */
+export declare const InfoRequestSchema: GenMessage<InfoRequest>;
+/**
+ * @generated from message aserto.authorizer.v2.InfoResponse
+ */
+export type InfoResponse = Message<"aserto.authorizer.v2.InfoResponse"> & {
+    /**
+     * @generated from field: string version = 1;
+     */
+    version: string;
+    /**
+     * @generated from field: string commit = 2;
+     */
+    commit: string;
+    /**
+     * @generated from field: string date = 3;
+     */
+    date: string;
+    /**
+     * @generated from field: string os = 4;
+     */
+    os: string;
+    /**
+     * @generated from field: string arch = 5;
+     */
+    arch: string;
+};
+/**
+ * Describes the message aserto.authorizer.v2.InfoResponse.
+ * Use `create(InfoResponseSchema)` to create a new message.
+ */
+export declare const InfoResponseSchema: GenMessage<InfoResponse>;
+/**
+ * @generated from message aserto.authorizer.v2.GetPolicyRequest
+ */
+export type GetPolicyRequest = Message<"aserto.authorizer.v2.GetPolicyRequest"> & {
+    /**
+     * @generated from field: string id = 1;
+     */
+    id: string;
+    /**
+     * @generated from field: google.protobuf.FieldMask field_mask = 2;
+     */
+    fieldMask?: FieldMask;
+    /**
+     * @generated from field: optional aserto.authorizer.v2.api.PolicyInstance policy_instance = 3;
+     */
+    policyInstance?: PolicyInstance;
+};
+/**
+ * Describes the message aserto.authorizer.v2.GetPolicyRequest.
+ * Use `create(GetPolicyRequestSchema)` to create a new message.
+ */
+export declare const GetPolicyRequestSchema: GenMessage<GetPolicyRequest>;
+/**
+ * @generated from message aserto.authorizer.v2.GetPolicyResponse
+ */
+export type GetPolicyResponse = Message<"aserto.authorizer.v2.GetPolicyResponse"> & {
+    /**
+     * @generated from field: aserto.authorizer.v2.api.Module result = 1;
+     */
+    result?: Module;
+};
+/**
+ * Describes the message aserto.authorizer.v2.GetPolicyResponse.
+ * Use `create(GetPolicyResponseSchema)` to create a new message.
+ */
+export declare const GetPolicyResponseSchema: GenMessage<GetPolicyResponse>;
+/**
+ * @generated from message aserto.authorizer.v2.ListPoliciesRequest
+ */
+export type ListPoliciesRequest = Message<"aserto.authorizer.v2.ListPoliciesRequest"> & {
+    /**
+     * @generated from field: google.protobuf.FieldMask field_mask = 1;
+     */
+    fieldMask?: FieldMask;
+    /**
+     * @generated from field: optional aserto.authorizer.v2.api.PolicyInstance policy_instance = 2;
+     */
+    policyInstance?: PolicyInstance;
+};
+/**
+ * Describes the message aserto.authorizer.v2.ListPoliciesRequest.
+ * Use `create(ListPoliciesRequestSchema)` to create a new message.
+ */
+export declare const ListPoliciesRequestSchema: GenMessage<ListPoliciesRequest>;
+/**
+ * @generated from message aserto.authorizer.v2.ListPoliciesResponse
+ */
+export type ListPoliciesResponse = Message<"aserto.authorizer.v2.ListPoliciesResponse"> & {
+    /**
+     * @generated from field: repeated aserto.authorizer.v2.api.Module result = 1;
+     */
+    result: Module[];
+};
+/**
+ * Describes the message aserto.authorizer.v2.ListPoliciesResponse.
+ * Use `create(ListPoliciesResponseSchema)` to create a new message.
+ */
+export declare const ListPoliciesResponseSchema: GenMessage<ListPoliciesResponse>;
+/**
+ * @generated from message aserto.authorizer.v2.DecisionTreeRequest
+ */
+export type DecisionTreeRequest = Message<"aserto.authorizer.v2.DecisionTreeRequest"> & {
+    /**
+     * @generated from field: aserto.authorizer.v2.api.PolicyContext policy_context = 1;
+     */
+    policyContext?: PolicyContext;
+    /**
+     * @generated from field: aserto.authorizer.v2.api.IdentityContext identity_context = 2;
+     */
+    identityContext?: IdentityContext;
+    /**
+     * @generated from field: aserto.authorizer.v2.DecisionTreeOptions options = 3;
+     */
+    options?: DecisionTreeOptions;
+    /**
+     * @generated from field: google.protobuf.Struct resource_context = 4;
+     */
+    resourceContext?: JsonObject;
+    /**
+     * @generated from field: optional aserto.authorizer.v2.api.PolicyInstance policy_instance = 5;
+     */
+    policyInstance?: PolicyInstance;
+};
+/**
+ * Describes the message aserto.authorizer.v2.DecisionTreeRequest.
+ * Use `create(DecisionTreeRequestSchema)` to create a new message.
+ */
+export declare const DecisionTreeRequestSchema: GenMessage<DecisionTreeRequest>;
+/**
+ * @generated from message aserto.authorizer.v2.DecisionTreeOptions
+ */
+export type DecisionTreeOptions = Message<"aserto.authorizer.v2.DecisionTreeOptions"> & {
+    /**
+     * @generated from field: aserto.authorizer.v2.PathSeparator path_separator = 1;
+     */
+    pathSeparator: PathSeparator;
+};
+/**
+ * Describes the message aserto.authorizer.v2.DecisionTreeOptions.
+ * Use `create(DecisionTreeOptionsSchema)` to create a new message.
+ */
+export declare const DecisionTreeOptionsSchema: GenMessage<DecisionTreeOptions>;
+/**
+ * @generated from message aserto.authorizer.v2.DecisionTreeResponse
+ */
+export type DecisionTreeResponse = Message<"aserto.authorizer.v2.DecisionTreeResponse"> & {
+    /**
+     * @generated from field: string path_root = 1;
+     */
+    pathRoot: string;
+    /**
+     * @generated from field: google.protobuf.Struct path = 3;
+     */
+    path?: JsonObject;
+};
+/**
+ * Describes the message aserto.authorizer.v2.DecisionTreeResponse.
+ * Use `create(DecisionTreeResponseSchema)` to create a new message.
+ */
+export declare const DecisionTreeResponseSchema: GenMessage<DecisionTreeResponse>;
+/**
+ * @generated from message aserto.authorizer.v2.IsRequest
+ */
+export type IsRequest = Message<"aserto.authorizer.v2.IsRequest"> & {
+    /**
+     * @generated from field: aserto.authorizer.v2.api.PolicyContext policy_context = 1;
+     */
+    policyContext?: PolicyContext;
+    /**
+     * @generated from field: aserto.authorizer.v2.api.IdentityContext identity_context = 2;
+     */
+    identityContext?: IdentityContext;
+    /**
+     * @generated from field: google.protobuf.Struct resource_context = 3;
+     */
+    resourceContext?: JsonObject;
+    /**
+     * @generated from field: optional aserto.authorizer.v2.api.PolicyInstance policy_instance = 4;
+     */
+    policyInstance?: PolicyInstance;
+};
+/**
+ * Describes the message aserto.authorizer.v2.IsRequest.
+ * Use `create(IsRequestSchema)` to create a new message.
+ */
+export declare const IsRequestSchema: GenMessage<IsRequest>;
+/**
+ * @generated from message aserto.authorizer.v2.Decision
+ */
+export type Decision = Message<"aserto.authorizer.v2.Decision"> & {
+    /**
+     * @generated from field: string decision = 1;
+     */
+    decision: string;
+    /**
+     * @generated from field: bool is = 2;
+     */
+    is: boolean;
+};
+/**
+ * Describes the message aserto.authorizer.v2.Decision.
+ * Use `create(DecisionSchema)` to create a new message.
+ */
+export declare const DecisionSchema: GenMessage<Decision>;
+/**
+ * @generated from message aserto.authorizer.v2.IsResponse
+ */
+export type IsResponse = Message<"aserto.authorizer.v2.IsResponse"> & {
+    /**
+     * @generated from field: repeated aserto.authorizer.v2.Decision decisions = 1;
+     */
+    decisions: Decision[];
+};
+/**
+ * Describes the message aserto.authorizer.v2.IsResponse.
+ * Use `create(IsResponseSchema)` to create a new message.
+ */
+export declare const IsResponseSchema: GenMessage<IsResponse>;
+/**
+ * @generated from message aserto.authorizer.v2.QueryOptions
+ */
+export type QueryOptions = Message<"aserto.authorizer.v2.QueryOptions"> & {
+    /**
+     * default false
+     *
+     * @generated from field: bool metrics = 1;
+     */
+    metrics: boolean;
+    /**
+     * default false
+     *
+     * @generated from field: bool instrument = 2;
+     */
+    instrument: boolean;
+    /**
+     * default ExplainOffV1
+     *
+     * @generated from field: aserto.authorizer.v2.TraceLevel trace = 3;
+     */
+    trace: TraceLevel;
+    /**
+     * default false
+     *
+     * @generated from field: bool trace_summary = 4;
+     */
+    traceSummary: boolean;
+};
+/**
+ * Describes the message aserto.authorizer.v2.QueryOptions.
+ * Use `create(QueryOptionsSchema)` to create a new message.
+ */
+export declare const QueryOptionsSchema: GenMessage<QueryOptions>;
+/**
+ * @generated from message aserto.authorizer.v2.QueryRequest
+ */
+export type QueryRequest = Message<"aserto.authorizer.v2.QueryRequest"> & {
+    /**
+     * @generated from field: string query = 1;
+     */
+    query: string;
+    /**
+     * @generated from field: string input = 2;
+     */
+    input: string;
+    /**
+     * @generated from field: optional aserto.authorizer.v2.QueryOptions options = 3;
+     */
+    options?: QueryOptions;
+    /**
+     * @generated from field: optional aserto.authorizer.v2.api.PolicyContext policy_context = 4;
+     */
+    policyContext?: PolicyContext;
+    /**
+     * @generated from field: optional aserto.authorizer.v2.api.IdentityContext identity_context = 5;
+     */
+    identityContext?: IdentityContext;
+    /**
+     * @generated from field: optional google.protobuf.Struct resource_context = 6;
+     */
+    resourceContext?: JsonObject;
+    /**
+     * @generated from field: optional aserto.authorizer.v2.api.PolicyInstance policy_instance = 7;
+     */
+    policyInstance?: PolicyInstance;
+};
+/**
+ * Describes the message aserto.authorizer.v2.QueryRequest.
+ * Use `create(QueryRequestSchema)` to create a new message.
+ */
+export declare const QueryRequestSchema: GenMessage<QueryRequest>;
+/**
+ * @generated from message aserto.authorizer.v2.CompileRequest
+ */
+export type CompileRequest = Message<"aserto.authorizer.v2.CompileRequest"> & {
+    /**
+     * @generated from field: string query = 1;
+     */
+    query: string;
+    /**
+     * @generated from field: string input = 2;
+     */
+    input: string;
+    /**
+     * @generated from field: repeated string unknowns = 3;
+     */
+    unknowns: string[];
+    /**
+     * @generated from field: repeated string disable_inlining = 4;
+     */
+    disableInlining: string[];
+    /**
+     * @generated from field: optional aserto.authorizer.v2.QueryOptions options = 5;
+     */
+    options?: QueryOptions;
+    /**
+     * @generated from field: optional aserto.authorizer.v2.api.PolicyContext policy_context = 6;
+     */
+    policyContext?: PolicyContext;
+    /**
+     * @generated from field: optional aserto.authorizer.v2.api.IdentityContext identity_context = 7;
+     */
+    identityContext?: IdentityContext;
+    /**
+     * @generated from field: optional google.protobuf.Struct resource_context = 8;
+     */
+    resourceContext?: JsonObject;
+    /**
+     * @generated from field: optional aserto.authorizer.v2.api.PolicyInstance policy_instance = 9;
+     */
+    policyInstance?: PolicyInstance;
+};
+/**
+ * Describes the message aserto.authorizer.v2.CompileRequest.
+ * Use `create(CompileRequestSchema)` to create a new message.
+ */
+export declare const CompileRequestSchema: GenMessage<CompileRequest>;
+/**
+ * @generated from message aserto.authorizer.v2.CompileResponse
+ */
+export type CompileResponse = Message<"aserto.authorizer.v2.CompileResponse"> & {
+    /**
+     * @generated from field: google.protobuf.Struct result = 1;
+     */
+    result?: JsonObject;
+    /**
+     * @generated from field: google.protobuf.Struct metrics = 2;
+     */
+    metrics?: JsonObject;
+    /**
+     * @generated from field: repeated google.protobuf.Struct trace = 3;
+     */
+    trace: JsonObject[];
+    /**
+     * @generated from field: repeated string trace_summary = 4;
+     */
+    traceSummary: string[];
+};
+/**
+ * Describes the message aserto.authorizer.v2.CompileResponse.
+ * Use `create(CompileResponseSchema)` to create a new message.
+ */
+export declare const CompileResponseSchema: GenMessage<CompileResponse>;
+/**
+ * @generated from message aserto.authorizer.v2.QueryResponse
+ */
+export type QueryResponse = Message<"aserto.authorizer.v2.QueryResponse"> & {
+    /**
+     * @generated from field: google.protobuf.Struct response = 1;
+     */
+    response?: JsonObject;
+    /**
+     * @generated from field: google.protobuf.Struct metrics = 2;
+     */
+    metrics?: JsonObject;
+    /**
+     * @generated from field: repeated google.protobuf.Struct trace = 3;
+     */
+    trace: JsonObject[];
+    /**
+     * @generated from field: repeated string trace_summary = 4;
+     */
+    traceSummary: string[];
+};
+/**
+ * Describes the message aserto.authorizer.v2.QueryResponse.
+ * Use `create(QueryResponseSchema)` to create a new message.
+ */
+export declare const QueryResponseSchema: GenMessage<QueryResponse>;
 /**
  * @generated from enum aserto.authorizer.v2.PathSeparator
  */
@@ -27,6 +429,10 @@ export declare enum PathSeparator {
      */
     SLASH = 2
 }
+/**
+ * Describes the enum aserto.authorizer.v2.PathSeparator.
+ */
+export declare const PathSeparatorSchema: GenEnum<PathSeparator>;
 /**
  * @generated from enum aserto.authorizer.v2.TraceLevel
  */
@@ -63,451 +469,67 @@ export declare enum TraceLevel {
     FAILS = 4
 }
 /**
- * @generated from message aserto.authorizer.v2.InfoRequest
+ * Describes the enum aserto.authorizer.v2.TraceLevel.
  */
-export declare class InfoRequest extends Message<InfoRequest> {
-    constructor(data?: PartialMessage<InfoRequest>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.InfoRequest";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): InfoRequest;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): InfoRequest;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): InfoRequest;
-    static equals(a: InfoRequest | PlainMessage<InfoRequest> | undefined, b: InfoRequest | PlainMessage<InfoRequest> | undefined): boolean;
-}
+export declare const TraceLevelSchema: GenEnum<TraceLevel>;
 /**
- * @generated from message aserto.authorizer.v2.InfoResponse
+ * @generated from service aserto.authorizer.v2.Authorizer
  */
-export declare class InfoResponse extends Message<InfoResponse> {
+export declare const Authorizer: GenService<{
     /**
-     * @generated from field: string version = 1;
+     * @generated from rpc aserto.authorizer.v2.Authorizer.DecisionTree
      */
-    version: string;
+    decisionTree: {
+        methodKind: "unary";
+        input: typeof DecisionTreeRequestSchema;
+        output: typeof DecisionTreeResponseSchema;
+    };
     /**
-     * @generated from field: string commit = 2;
+     * @generated from rpc aserto.authorizer.v2.Authorizer.Is
      */
-    commit: string;
+    is: {
+        methodKind: "unary";
+        input: typeof IsRequestSchema;
+        output: typeof IsResponseSchema;
+    };
     /**
-     * @generated from field: string date = 3;
+     * @generated from rpc aserto.authorizer.v2.Authorizer.Query
      */
-    date: string;
+    query: {
+        methodKind: "unary";
+        input: typeof QueryRequestSchema;
+        output: typeof QueryResponseSchema;
+    };
     /**
-     * @generated from field: string os = 4;
+     * @generated from rpc aserto.authorizer.v2.Authorizer.Compile
      */
-    os: string;
+    compile: {
+        methodKind: "unary";
+        input: typeof CompileRequestSchema;
+        output: typeof CompileResponseSchema;
+    };
     /**
-     * @generated from field: string arch = 5;
+     * @generated from rpc aserto.authorizer.v2.Authorizer.ListPolicies
      */
-    arch: string;
-    constructor(data?: PartialMessage<InfoResponse>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.InfoResponse";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): InfoResponse;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): InfoResponse;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): InfoResponse;
-    static equals(a: InfoResponse | PlainMessage<InfoResponse> | undefined, b: InfoResponse | PlainMessage<InfoResponse> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.GetPolicyRequest
- */
-export declare class GetPolicyRequest extends Message<GetPolicyRequest> {
+    listPolicies: {
+        methodKind: "unary";
+        input: typeof ListPoliciesRequestSchema;
+        output: typeof ListPoliciesResponseSchema;
+    };
     /**
-     * @generated from field: string id = 1;
+     * @generated from rpc aserto.authorizer.v2.Authorizer.GetPolicy
      */
-    id: string;
+    getPolicy: {
+        methodKind: "unary";
+        input: typeof GetPolicyRequestSchema;
+        output: typeof GetPolicyResponseSchema;
+    };
     /**
-     * @generated from field: google.protobuf.FieldMask field_mask = 2;
+     * @generated from rpc aserto.authorizer.v2.Authorizer.Info
      */
-    fieldMask?: FieldMask;
-    /**
-     * @generated from field: optional aserto.authorizer.v2.api.PolicyInstance policy_instance = 3;
-     */
-    policyInstance?: PolicyInstance;
-    constructor(data?: PartialMessage<GetPolicyRequest>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.GetPolicyRequest";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetPolicyRequest;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetPolicyRequest;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetPolicyRequest;
-    static equals(a: GetPolicyRequest | PlainMessage<GetPolicyRequest> | undefined, b: GetPolicyRequest | PlainMessage<GetPolicyRequest> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.GetPolicyResponse
- */
-export declare class GetPolicyResponse extends Message<GetPolicyResponse> {
-    /**
-     * @generated from field: aserto.authorizer.v2.api.Module result = 1;
-     */
-    result?: Module;
-    constructor(data?: PartialMessage<GetPolicyResponse>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.GetPolicyResponse";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): GetPolicyResponse;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): GetPolicyResponse;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): GetPolicyResponse;
-    static equals(a: GetPolicyResponse | PlainMessage<GetPolicyResponse> | undefined, b: GetPolicyResponse | PlainMessage<GetPolicyResponse> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.ListPoliciesRequest
- */
-export declare class ListPoliciesRequest extends Message<ListPoliciesRequest> {
-    /**
-     * @generated from field: google.protobuf.FieldMask field_mask = 1;
-     */
-    fieldMask?: FieldMask;
-    /**
-     * @generated from field: optional aserto.authorizer.v2.api.PolicyInstance policy_instance = 2;
-     */
-    policyInstance?: PolicyInstance;
-    constructor(data?: PartialMessage<ListPoliciesRequest>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.ListPoliciesRequest";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListPoliciesRequest;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ListPoliciesRequest;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ListPoliciesRequest;
-    static equals(a: ListPoliciesRequest | PlainMessage<ListPoliciesRequest> | undefined, b: ListPoliciesRequest | PlainMessage<ListPoliciesRequest> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.ListPoliciesResponse
- */
-export declare class ListPoliciesResponse extends Message<ListPoliciesResponse> {
-    /**
-     * @generated from field: repeated aserto.authorizer.v2.api.Module result = 1;
-     */
-    result: Module[];
-    constructor(data?: PartialMessage<ListPoliciesResponse>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.ListPoliciesResponse";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): ListPoliciesResponse;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): ListPoliciesResponse;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): ListPoliciesResponse;
-    static equals(a: ListPoliciesResponse | PlainMessage<ListPoliciesResponse> | undefined, b: ListPoliciesResponse | PlainMessage<ListPoliciesResponse> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.DecisionTreeRequest
- */
-export declare class DecisionTreeRequest extends Message<DecisionTreeRequest> {
-    /**
-     * @generated from field: aserto.authorizer.v2.api.PolicyContext policy_context = 1;
-     */
-    policyContext?: PolicyContext;
-    /**
-     * @generated from field: aserto.authorizer.v2.api.IdentityContext identity_context = 2;
-     */
-    identityContext?: IdentityContext;
-    /**
-     * @generated from field: aserto.authorizer.v2.DecisionTreeOptions options = 3;
-     */
-    options?: DecisionTreeOptions;
-    /**
-     * @generated from field: google.protobuf.Struct resource_context = 4;
-     */
-    resourceContext?: Struct;
-    /**
-     * @generated from field: optional aserto.authorizer.v2.api.PolicyInstance policy_instance = 5;
-     */
-    policyInstance?: PolicyInstance;
-    constructor(data?: PartialMessage<DecisionTreeRequest>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.DecisionTreeRequest";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DecisionTreeRequest;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DecisionTreeRequest;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DecisionTreeRequest;
-    static equals(a: DecisionTreeRequest | PlainMessage<DecisionTreeRequest> | undefined, b: DecisionTreeRequest | PlainMessage<DecisionTreeRequest> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.DecisionTreeOptions
- */
-export declare class DecisionTreeOptions extends Message<DecisionTreeOptions> {
-    /**
-     * @generated from field: aserto.authorizer.v2.PathSeparator path_separator = 1;
-     */
-    pathSeparator: PathSeparator;
-    constructor(data?: PartialMessage<DecisionTreeOptions>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.DecisionTreeOptions";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DecisionTreeOptions;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DecisionTreeOptions;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DecisionTreeOptions;
-    static equals(a: DecisionTreeOptions | PlainMessage<DecisionTreeOptions> | undefined, b: DecisionTreeOptions | PlainMessage<DecisionTreeOptions> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.DecisionTreeResponse
- */
-export declare class DecisionTreeResponse extends Message<DecisionTreeResponse> {
-    /**
-     * @generated from field: string path_root = 1;
-     */
-    pathRoot: string;
-    /**
-     * @generated from field: google.protobuf.Struct path = 3;
-     */
-    path?: Struct;
-    constructor(data?: PartialMessage<DecisionTreeResponse>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.DecisionTreeResponse";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DecisionTreeResponse;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DecisionTreeResponse;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DecisionTreeResponse;
-    static equals(a: DecisionTreeResponse | PlainMessage<DecisionTreeResponse> | undefined, b: DecisionTreeResponse | PlainMessage<DecisionTreeResponse> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.IsRequest
- */
-export declare class IsRequest extends Message<IsRequest> {
-    /**
-     * @generated from field: aserto.authorizer.v2.api.PolicyContext policy_context = 1;
-     */
-    policyContext?: PolicyContext;
-    /**
-     * @generated from field: aserto.authorizer.v2.api.IdentityContext identity_context = 2;
-     */
-    identityContext?: IdentityContext;
-    /**
-     * @generated from field: google.protobuf.Struct resource_context = 3;
-     */
-    resourceContext?: Struct;
-    /**
-     * @generated from field: optional aserto.authorizer.v2.api.PolicyInstance policy_instance = 4;
-     */
-    policyInstance?: PolicyInstance;
-    constructor(data?: PartialMessage<IsRequest>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.IsRequest";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): IsRequest;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): IsRequest;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): IsRequest;
-    static equals(a: IsRequest | PlainMessage<IsRequest> | undefined, b: IsRequest | PlainMessage<IsRequest> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.Decision
- */
-export declare class Decision extends Message<Decision> {
-    /**
-     * @generated from field: string decision = 1;
-     */
-    decision: string;
-    /**
-     * @generated from field: bool is = 2;
-     */
-    is: boolean;
-    constructor(data?: PartialMessage<Decision>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.Decision";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Decision;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Decision;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Decision;
-    static equals(a: Decision | PlainMessage<Decision> | undefined, b: Decision | PlainMessage<Decision> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.IsResponse
- */
-export declare class IsResponse extends Message<IsResponse> {
-    /**
-     * @generated from field: repeated aserto.authorizer.v2.Decision decisions = 1;
-     */
-    decisions: Decision[];
-    constructor(data?: PartialMessage<IsResponse>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.IsResponse";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): IsResponse;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): IsResponse;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): IsResponse;
-    static equals(a: IsResponse | PlainMessage<IsResponse> | undefined, b: IsResponse | PlainMessage<IsResponse> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.QueryOptions
- */
-export declare class QueryOptions extends Message<QueryOptions> {
-    /**
-     * default false
-     *
-     * @generated from field: bool metrics = 1;
-     */
-    metrics: boolean;
-    /**
-     * default false
-     *
-     * @generated from field: bool instrument = 2;
-     */
-    instrument: boolean;
-    /**
-     * default ExplainOffV1
-     *
-     * @generated from field: aserto.authorizer.v2.TraceLevel trace = 3;
-     */
-    trace: TraceLevel;
-    /**
-     * default false
-     *
-     * @generated from field: bool trace_summary = 4;
-     */
-    traceSummary: boolean;
-    constructor(data?: PartialMessage<QueryOptions>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.QueryOptions";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryOptions;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryOptions;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryOptions;
-    static equals(a: QueryOptions | PlainMessage<QueryOptions> | undefined, b: QueryOptions | PlainMessage<QueryOptions> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.QueryRequest
- */
-export declare class QueryRequest extends Message<QueryRequest> {
-    /**
-     * @generated from field: string query = 1;
-     */
-    query: string;
-    /**
-     * @generated from field: string input = 2;
-     */
-    input: string;
-    /**
-     * @generated from field: optional aserto.authorizer.v2.QueryOptions options = 3;
-     */
-    options?: QueryOptions;
-    /**
-     * @generated from field: optional aserto.authorizer.v2.api.PolicyContext policy_context = 4;
-     */
-    policyContext?: PolicyContext;
-    /**
-     * @generated from field: optional aserto.authorizer.v2.api.IdentityContext identity_context = 5;
-     */
-    identityContext?: IdentityContext;
-    /**
-     * @generated from field: optional google.protobuf.Struct resource_context = 6;
-     */
-    resourceContext?: Struct;
-    /**
-     * @generated from field: optional aserto.authorizer.v2.api.PolicyInstance policy_instance = 7;
-     */
-    policyInstance?: PolicyInstance;
-    constructor(data?: PartialMessage<QueryRequest>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.QueryRequest";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryRequest;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryRequest;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryRequest;
-    static equals(a: QueryRequest | PlainMessage<QueryRequest> | undefined, b: QueryRequest | PlainMessage<QueryRequest> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.CompileRequest
- */
-export declare class CompileRequest extends Message<CompileRequest> {
-    /**
-     * @generated from field: string query = 1;
-     */
-    query: string;
-    /**
-     * @generated from field: string input = 2;
-     */
-    input: string;
-    /**
-     * @generated from field: repeated string unknowns = 3;
-     */
-    unknowns: string[];
-    /**
-     * @generated from field: repeated string disable_inlining = 4;
-     */
-    disableInlining: string[];
-    /**
-     * @generated from field: optional aserto.authorizer.v2.QueryOptions options = 5;
-     */
-    options?: QueryOptions;
-    /**
-     * @generated from field: optional aserto.authorizer.v2.api.PolicyContext policy_context = 6;
-     */
-    policyContext?: PolicyContext;
-    /**
-     * @generated from field: optional aserto.authorizer.v2.api.IdentityContext identity_context = 7;
-     */
-    identityContext?: IdentityContext;
-    /**
-     * @generated from field: optional google.protobuf.Struct resource_context = 8;
-     */
-    resourceContext?: Struct;
-    /**
-     * @generated from field: optional aserto.authorizer.v2.api.PolicyInstance policy_instance = 9;
-     */
-    policyInstance?: PolicyInstance;
-    constructor(data?: PartialMessage<CompileRequest>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.CompileRequest";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CompileRequest;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CompileRequest;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CompileRequest;
-    static equals(a: CompileRequest | PlainMessage<CompileRequest> | undefined, b: CompileRequest | PlainMessage<CompileRequest> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.CompileResponse
- */
-export declare class CompileResponse extends Message<CompileResponse> {
-    /**
-     * @generated from field: google.protobuf.Struct result = 1;
-     */
-    result?: Struct;
-    /**
-     * @generated from field: google.protobuf.Struct metrics = 2;
-     */
-    metrics?: Struct;
-    /**
-     * @generated from field: repeated google.protobuf.Struct trace = 3;
-     */
-    trace: Struct[];
-    /**
-     * @generated from field: repeated string trace_summary = 4;
-     */
-    traceSummary: string[];
-    constructor(data?: PartialMessage<CompileResponse>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.CompileResponse";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): CompileResponse;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): CompileResponse;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): CompileResponse;
-    static equals(a: CompileResponse | PlainMessage<CompileResponse> | undefined, b: CompileResponse | PlainMessage<CompileResponse> | undefined): boolean;
-}
-/**
- * @generated from message aserto.authorizer.v2.QueryResponse
- */
-export declare class QueryResponse extends Message<QueryResponse> {
-    /**
-     * @generated from field: google.protobuf.Struct response = 1;
-     */
-    response?: Struct;
-    /**
-     * @generated from field: google.protobuf.Struct metrics = 2;
-     */
-    metrics?: Struct;
-    /**
-     * @generated from field: repeated google.protobuf.Struct trace = 3;
-     */
-    trace: Struct[];
-    /**
-     * @generated from field: repeated string trace_summary = 4;
-     */
-    traceSummary: string[];
-    constructor(data?: PartialMessage<QueryResponse>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.QueryResponse";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): QueryResponse;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): QueryResponse;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): QueryResponse;
-    static equals(a: QueryResponse | PlainMessage<QueryResponse> | undefined, b: QueryResponse | PlainMessage<QueryResponse> | undefined): boolean;
-}
+    info: {
+        methodKind: "unary";
+        input: typeof InfoRequestSchema;
+        output: typeof InfoResponseSchema;
+    };
+}>;
