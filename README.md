@@ -9,6 +9,11 @@ yarn install
 yarn gen
 ```
 
+### Build with a local build of authorizer
+```
+BUF_PATH=/path/to/authorizer.bin yarn gen
+```
+
 ## Usage
 
 This repository contains only the bindings.
