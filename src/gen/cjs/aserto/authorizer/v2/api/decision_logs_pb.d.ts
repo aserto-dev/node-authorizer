@@ -1,14 +1,19 @@
-import type { BinaryReadOptions, FieldList, JsonReadOptions, JsonValue, PartialMessage, PlainMessage } from "@bufbuild/protobuf";
-import { Message, proto3, Struct, Timestamp } from "@bufbuild/protobuf";
-import { IdentityContext } from "./identity_context_pb.js";
-import { PolicyContext } from "./policy_context_pb.js";
-import { PolicyInstance } from "./policy_instance_pb.js";
+import type { GenFile, GenMessage } from "@bufbuild/protobuf/codegenv1";
+import type { Timestamp } from "@bufbuild/protobuf/wkt";
+import type { PolicyContext } from "./policy_context_pb";
+import type { IdentityContext } from "./identity_context_pb";
+import type { PolicyInstance } from "./policy_instance_pb";
+import type { JsonObject, Message } from "@bufbuild/protobuf";
+/**
+ * Describes the file aserto/authorizer/v2/api/decision_logs.proto.
+ */
+export declare const file_aserto_authorizer_v2_api_decision_logs: GenFile;
 /**
  * represents a decision that an authorizer performed in the past
  *
  * @generated from message aserto.authorizer.v2.api.Decision
  */
-export declare class Decision extends Message<Decision> {
+export type Decision = Message<"aserto.authorizer.v2.api.Decision"> & {
     /**
      * unique id, replay a decision starting with this, also useful to de-dup
      *
@@ -52,7 +57,7 @@ export declare class Decision extends Message<Decision> {
      *
      * @generated from field: google.protobuf.Struct resource = 7;
      */
-    resource?: Struct;
+    resource?: JsonObject;
     /**
      * annotations that may be added to a decision
      *
@@ -67,21 +72,18 @@ export declare class Decision extends Message<Decision> {
      * @generated from field: optional string tenant_id = 9;
      */
     tenantId?: string;
-    constructor(data?: PartialMessage<Decision>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.api.Decision";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): Decision;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): Decision;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): Decision;
-    static equals(a: Decision | PlainMessage<Decision> | undefined, b: Decision | PlainMessage<Decision> | undefined): boolean;
-}
+};
+/**
+ * Describes the message aserto.authorizer.v2.api.Decision.
+ * Use `create(DecisionSchema)` to create a new message.
+ */
+export declare const DecisionSchema: GenMessage<Decision>;
 /**
  * information about a user on behalf of whom a decision was made
  *
  * @generated from message aserto.authorizer.v2.api.DecisionUser
  */
-export declare class DecisionUser extends Message<DecisionUser> {
+export type DecisionUser = Message<"aserto.authorizer.v2.api.DecisionUser"> & {
     /**
      * identity context used in the decision
      *
@@ -100,21 +102,18 @@ export declare class DecisionUser extends Message<DecisionUser> {
      * @generated from field: string email = 3;
      */
     email: string;
-    constructor(data?: PartialMessage<DecisionUser>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.api.DecisionUser";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DecisionUser;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DecisionUser;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DecisionUser;
-    static equals(a: DecisionUser | PlainMessage<DecisionUser> | undefined, b: DecisionUser | PlainMessage<DecisionUser> | undefined): boolean;
-}
+};
+/**
+ * Describes the message aserto.authorizer.v2.api.DecisionUser.
+ * Use `create(DecisionUserSchema)` to create a new message.
+ */
+export declare const DecisionUserSchema: GenMessage<DecisionUser>;
 /**
  * information about a policy used in a decision
  *
  * @generated from message aserto.authorizer.v2.api.DecisionPolicy
  */
-export declare class DecisionPolicy extends Message<DecisionPolicy> {
+export type DecisionPolicy = Message<"aserto.authorizer.v2.api.DecisionPolicy"> & {
     /**
      * policy context used in the decision
      *
@@ -151,12 +150,9 @@ export declare class DecisionPolicy extends Message<DecisionPolicy> {
      * @generated from field: aserto.authorizer.v2.api.PolicyInstance policy_instance = 6;
      */
     policyInstance?: PolicyInstance;
-    constructor(data?: PartialMessage<DecisionPolicy>);
-    static readonly runtime: typeof proto3;
-    static readonly typeName = "aserto.authorizer.v2.api.DecisionPolicy";
-    static readonly fields: FieldList;
-    static fromBinary(bytes: Uint8Array, options?: Partial<BinaryReadOptions>): DecisionPolicy;
-    static fromJson(jsonValue: JsonValue, options?: Partial<JsonReadOptions>): DecisionPolicy;
-    static fromJsonString(jsonString: string, options?: Partial<JsonReadOptions>): DecisionPolicy;
-    static equals(a: DecisionPolicy | PlainMessage<DecisionPolicy> | undefined, b: DecisionPolicy | PlainMessage<DecisionPolicy> | undefined): boolean;
-}
+};
+/**
+ * Describes the message aserto.authorizer.v2.api.DecisionPolicy.
+ * Use `create(DecisionPolicySchema)` to create a new message.
+ */
+export declare const DecisionPolicySchema: GenMessage<DecisionPolicy>;
